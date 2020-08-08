@@ -42,8 +42,8 @@ public class KafkaBatchProcessing {
                 DataTypes.createStructField("partition", DataTypes.StringType, true),
                 DataTypes.createStructField("offset", DataTypes.StringType, true)
         });
-        Dataset<Row> df5 = kafka_temp_df.withColumn("data", functions.from_json(kafka_temp_df.col("value"), schema));
-        Dataset<Row> df7 = df5.select("data.*");
+        Dataset<Row> input_json = kafka_temp_df.withColumn("data", functions.from_json(kafka_temp_df.col("value"), schema)).select("data.*");
+        input_json.show();
 
         /*Schema not present*/
         JavaRDD<String> store = kafka_temp_df.toJavaRDD().map(x -> x.mkString());
