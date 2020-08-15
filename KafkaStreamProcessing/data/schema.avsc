@@ -1,0 +1,21 @@
+{
+"type" : "record",
+"name" : "Record_0",
+"fields" : [
+ {
+  "name" : "partition",
+  "type" : [
+   "string",
+   "null"
+  ],
+  "default" : null
+ },
+ {
+  "name" : "offset",
+  "type" : [
+  "string",
+  "null"
+  ]
+ }
+]
+}
